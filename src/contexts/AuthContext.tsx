@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect, ReactNode } from "react";
 import { supabase } from "../../supabase";
 import { User } from "@supabase/supabase-js";
+import { useNavigate } from "react-router-dom";
 
 interface AuthContextType {
   user: User | null;
@@ -15,6 +16,7 @@ export const AuthContext = createContext<AuthContextType | undefined>(undefined)
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchSession = async () => {
@@ -28,6 +30,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       (_event, session) => {
         console.log("Auth event:", _event, session);
         setUser(session?.user ?? null);
+        // Redirection vers /application après connexion
+        if (session?.user && _event === 'SIGNED_IN') {
+          navigate('/application');
+        }
       }
     );
 

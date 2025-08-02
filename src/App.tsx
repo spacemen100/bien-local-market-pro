@@ -9,6 +9,7 @@ import Demo from "./pages/Demo";
 import Layout from "./components/Layout";
 import SubscriptionSuccess from "./pages/SubscriptionSuccess";
 import SubscriptionCancel from "./pages/SubscriptionCancel";
+import Application from "./application/src/App";
 import { AuthProvider } from "./contexts/AuthContext";
 import AuthModal from "./components/AuthModal";
 
@@ -26,6 +27,7 @@ const App = () => {
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/demo" element={<Demo />} />
+                <Route path="/application" element={<Application />} />
                 <Route
                   path="/subscription/success"
                   element={<SubscriptionSuccess />}
