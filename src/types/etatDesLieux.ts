@@ -1,6 +1,9 @@
 
 export interface EtatDesLieux {
   id: string;
+  user_id: string;
+  type_etat_des_lieux: 'entree' | 'sortie';
+  type_bien: 'studio' | 't2_t3' | 't4_t5' | 'inventaire_mobilier' | 'bureau' | 'local_commercial' | 'garage_box' | 'pieces_supplementaires';
   date_entree?: string | null;
   date_sortie?: string | null;
   adresse_bien: string; // Champ obligatoire pour "Type de bien"
@@ -13,6 +16,8 @@ export interface EtatDesLieux {
   travaux_a_prevoir?: boolean;
   travaux_a_faire?: boolean | null;
   description_travaux?: string | null;
+  signature_locataire?: string | null;
+  signature_proprietaire_agent?: string | null;
 }
 
 export interface ReleveCompteurs {
