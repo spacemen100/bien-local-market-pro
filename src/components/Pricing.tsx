@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check } from "lucide-react";
 import { useUser } from '@supabase/auth-helpers-react';
-import { supabase } from '../../supabase';
+import { supabase } from '../lib/supabase';
 import AuthModal from './AuthModal';
 import { useAuth } from '@/hooks/useAuth';
 
